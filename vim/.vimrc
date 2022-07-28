@@ -22,6 +22,25 @@ set hidden
 set encoding=UTF-8
 " 무명 레지스터를 시스템 클립보드로 복사
 set clipboard=unnamed
+" list mode 활성 : 화면에 보이지 않는 문자 표시
+set list
+" showbreak : 문자길이가 윈도우를 초과하여 화면상 적용되는 줄바꿈
+set showbreak=↪\ 
+" tab :'탭의 첫머리''이후 뒷부분'
+" eol : 개행문자(end of line)
+" space : 공백문자
+" nbsp : 줄바꿈 없는 공백(non-breaking space)
+" trail : 구문이 끝난 뒤 불필요 공백문자
+" extends : 'nowrap' 상태에서 화면 뚫고 넘어간 문장의 오른쪽 영역
+" precedes: 'nowrap' 상태에서 화면 뚫고 넘어간 문장의 왼쪽 라인
+set listchars=tab:\|\ ,eol:↲,space:·,nbsp:␣,trail:•,extends:»,precedes:«
+" Nontext : eol, extends, precedes
+" Specialkey : nbsp, tab, trail
+" ctermfg : 컬러 터미널 적용 색상
+" guifg : GUI 적용 색상
+hi NonText ctermfg=7 guifg=gray
+hi SpecialKey ctermfg=7 guifg=gray
+
 
 " -----------------------------------------------
 " 2. Key mapping.
