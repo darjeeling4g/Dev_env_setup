@@ -8,6 +8,8 @@ if has("syntax")
 endif
 " / 검색으로 매칭되는 문자열 하이라이트
 set hlsearch
+" / 문자 입력시마다 문자 하이라이트
+set incsearch
 " 라인넘버 출력
 set nu
 " 매칭되는 괄호 하이라이트
