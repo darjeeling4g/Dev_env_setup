@@ -83,6 +83,8 @@ call plug#begin('~/.vim/plugged')
 	Plug '42Paris/42header'
 	" devicons : 폴더, 파일 icon표시
 	Plug 'ryanoasis/vim-devicons'
+	" markdown preview : 마크다운 파일 미리보기
+	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " -----------------------------------------------
@@ -95,3 +97,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 :hi ColorColumn ctermbg=8
+" set to 1, vim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
