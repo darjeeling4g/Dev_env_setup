@@ -100,3 +100,5 @@ let g:airline_powerline_fonts = 1
 " set to 1, vim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
+" set default theme (dark or light)
+let g:mkdp_theme = 'dark'
