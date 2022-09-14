@@ -4,6 +4,4 @@
 ## Computer System Architecture
 
 ## etc.
-### My development environment setup.
-- iterm
-- vim
+- [My development environment setup](./etc/dev_env_setup.md).
