@@ -22,7 +22,7 @@
 	- 경우에 따라 0.5V - 3V 시스템에 대응하기도 함
 - 논리 게이트
 	- 기본 게이트
-	- 진리표로 동작 정의
+	- 진리표로 동작 정의  
 ![논리 게이트](../../asset/img/logic_gate.jpg)
 
 ### 3. 부울 대수(Boolean Algebra)
@@ -44,7 +44,7 @@
 	> 임의의 원소에 연산할 결과가 항등원이 나오게 만드는 원소
 	- 교환법칙
 	- 결합법칙
-	- 드모르간의 정리
+	- 드모르간의 정리  
 ![부울 대수 공리](../../asset/img/boolean_algebra.png)
 - 부울 대수의 간략화와 등가 회로
 	- F = ABC + ABC' + A'C = AB(C + C') + A'C = AB + A'C
@@ -86,14 +86,14 @@
 	1. 각 출력에 대한 간소화된 부울 함수 도출
 	1. 부울 함수에 대한 논리도 작성
 	1. 논리도를 바탕으로 회로 구현
-- 반가산기(Half adder)
+- 반가산기(Half adder)  
 ![반가산기](../../asset/img/half_adder.png)
 	- 2개의 비트값을 산술적으로 가산  
 	S = x'y + xy' = x ⊕ y  
 	C = xy
 	> S : 합(sum)  
 	C : 올림수(carry)
-- 전가산기(Full adder)
+- 전가산기(Full adder)  
 ![전가산기](../../asset/img/full_adder.png)
 	- 캐리값을 포함하여 3비트 가산  
 	S = x ⊕ y ⊕ z  
@@ -110,7 +110,7 @@
 	- SR - 플립플롭
 	- D - 플립플롭
 	- JK - 플립플롭
-	- T - 플립플롭
+	- T - 플립플롭  
 ![플립플롭의 종류](../../asset/img/flip_flop.gif)
 - 모서리-변이형 플립플롭(Edge-triggered FF)
 	- 입력값의 변화 모서리에서만 동작
