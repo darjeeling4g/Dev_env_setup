@@ -1,4 +1,4 @@
-# CSA Chapter1 디지털 논리회로
+# CSA Chapter1 : 디지털 논리회로
 
 ### 1. 디지털 컴퓨터(Digital Computer)
 - 정의
