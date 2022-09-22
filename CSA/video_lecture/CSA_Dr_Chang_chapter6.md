@@ -42,19 +42,19 @@
 	0x53 - 0xFFE9 = 0x6A
 	```assembly
 		ORG 100
-		> 시작주소 : 16진수 100
+		; 시작주소 : 16진수 100
 		LDA SUB
-		> SUB의 값 로드
+		; SUB의 값 로드
 		CMA
-		> 1의보수화
+		; 1의보수화
 		INC
-		> 1증가(2의 보수화)
+		; 1증가(2의 보수화)
 		ADD MIN
-		> MIN과 ADD연산실행
+		; MIN과 ADD연산실행
 		STA DIF
-		> DIF 값 저장
+		; DIF 값 저장
 		HLT
-		> 프로그램 종료
+		; 프로그램 종료
 	MIN,	DEC 83
 	SUB,	DEC -23
 	DIF,	HEX 0
@@ -100,38 +100,159 @@
 		```
 	- 어셈블리어로의 표현
 		```assembly
-			ORG 100
-			LDA ADS
-			STA PTR
-			LDA NBR
-			STA CTR
-			CLA
-		LOP,	ADD PTR I
-			ISZ PTR
-			ISZ CTR
-			BUN LOP
-			STA SUM
-			HLT
-		ADS,	HEX 150
-		PTR,	HEX 0
-		NBR,	DEX -100
-		CTR,	HEX 0
-		SUM,	HEX 0
-			ORG 150
-			DEC 75
-
-			DEC 23
-			END
+			ORG 100		;Origin of program is HEX 100
+			LDA ADS		;Load first address of oprands
+			STA PTR		;Store in pointer
+			LDA NBR		;Load minus 100
+			STA CTR		;Store in counter
+			CLA		;Clear accumulator
+		LOP,	ADD PTR I	;Add an operand to AC
+			ISZ PTR		;Increment pointer
+			ISZ CTR		;Increment counter
+			BUN LOP		;Repeat loop again
+			STA SUM		;Store sum
+			HLT		;Halt
+		ADS,	HEX 150		;Frist address of operands
+		PTR,	HEX 0		;This location reserved for a pointer
+		NBR,	DEX -100	;Consistant to initialized counter
+		CTR,	HEX 0		;This location reserved for a counter
+		SUM,	HEX 0		;Sum is stored here
+			ORG 150		;Origin of operands is HEX 150
+			; 아래 데이터는 실제 메모리상 주소에서 150번 주소에 저장됨
+			DEC 75		;First operand
+			...
+			DEC 23		;Last operand
+			END		;End of symbolic program
 		```
 		- 루프부분
 			```assembly
 			LOP,	ADD PTR I
 				ISZ PTR
-				ISZ CTR
+				ISZ CTR		;100번 돌고나면 counter가 0이된다 / ISZ는 0일때 다음 명령어가 skip되므로 루프가 종료됨
 				BUN LOP
 			```
 		- 카운터 부분
+			```assembly
+			NBR,	DEX -100		;0일때 탈출조건이 되므로 -값부터 값을 올림
+			CTR,	HEX 0
+			```
 		- 데이터 array부분
+			```assembly
+			ORG 150
+			DEC 75
+			...
+			DEC 23
+			```
 ### 5. 산술 및 논리 연산의 프로그래밍(Programming Arithmetic and Logic Operations)
+- 곱셈 프로그램
+	> 이진 곱셉 : 각 자리수마다 왼쪽으로 쉬프트해서 더해주는 것을 반복한다(이때, 0이면 더하지 않고 1인경우만 왼쪽으로 쉬프트 한 값을 더함)
+
+[이미지 자리]
+- 배정밀도 가산
+	> 배정밀도가 32bit일때, 16bit 레지스터로 어떻게 연산할 것인가?  
+	> 캐리값만 올려주고 나눠서 계산 / 저장도 나눠서 실행
+	>> 시간이 배로 걸린다는 단점이 있음
+	- High part와 Low part를 따로 연산
+	- Low part의 캐리를 High part에 가산
+	- 결과치도 High/Low part별도 저장
+	```assembly
+	LDA AL		;Load A low
+	ADD BL		;Add B low, carry in E
+	STA CL		;Store in C low
+	CLA		;Clear AC
+	CIL		;Circulate to bring carry into AC
+	ADD AH		;Add A high and carry
+	ADD BH		;Add B high
+	STA CH		;Store in C high
+	HLT
+	```
 ### 6. 서브루틴(Subroutines)
+- 서브루틴 사용 예
+```assembly
+	ORG 100		;Main program
+	LDA X		;Load X
+	BSA SH4		;Branch to subroutine
+	STA X		;Store shifted number
+	LDA Y		;Load Y
+	BSA SH4		;Branch to subroutine again
+	STA Y		;Store shifted number
+	HLT
+X,	HEX 1234
+Y,	HEX 4321
+			;Subroutine to shift left 4 times
+SH4,	HEX0		;Store return address here
+	CIL		;Circulate left once
+	CIL
+	CIL
+	CIL		;Circulate left fourth time
+	AND MSK		;Set AC(13-16) to zero
+	BUN SH4 I	;Return to main program
+MSK,	HEX FFF0	;Mask operand
+	END
+```
+- 서브루틴 파라미터와 데이터 링키지(X OR Y 연산)
+	> 파라미터가 2개일때 서브루틴으로 어떻게 값을 넘길것인가?
+	>> BSA 명령 바로 다음줄에 2번째 파라미터 값을 위치시키면, 서브루틴 첫번째 줄에 해당 데이터의 주소가 저장되므로 이를 간접호출 하면 서브루틴 내부에서 활용 가능!
+
+	> AND연산 만으로 어떻게 OR 연산을 수행할 것인가?
+	>> A OR B = (A' AND B')'
+	
+	[이미지 자리]
+- 16bit 데이터 블록의 복사(memcpy()함수)
+	```assembly
+				;Main program
+		BSA MVE		;Branch to subroutine
+		HEX 100		;First address of source data
+		HEX 200		;First address of destination data
+		DEC -16		;Number of items to move
+		HLT		;
+	MVE,	HEX 0		;Subroutine MVE
+		LDA MVE I	;Bring address of source
+		STA PTI		;Store in first pointer
+		ISZ MVE		;Ancrement return address
+		LDA MVE 1	;Bring address of destination
+		STA PT2		;Store in second pointer
+		ISZ MVE		;Ancrement return address
+		LDA MVE I	;Bring number of items
+		STA CTR		;Store in counter
+		ISZ MVE		;Ancrement return address
+	LOP,	LDA PT1 I	;Load source item
+		STA PT2 I	;Store in destination
+		ISZ PTI		;Ancrement source pointer
+		ISZ PT2		;ncrement destination pointer
+		ISZ CTR		;Ancrement counter
+		BUN LOP		;Repeat 16 times
+		BUN MVE I	;Return to main program
+	PT1,	-
+	PT2,	-
+	CTR,	-
+	```
 ### 7. 입출력 프로그래밍(Input-Output Programming)
+- 1개 문자의 입출력  
+	> 입출력 신호를 나타내는 flag식별 될때까지 대기
+
+[이미지 자리]
+- 2개 문자의 패킹
+	- 8bit ASCII --> 16bit Unicode
+	- SH4 서브루틴 사용
+
+[이미지 자리]
+- 버퍼에 문자 저장
+
+[이미지 자리]
+- 두 워드의 비교
+	- 데이터 감산을 통한 비교
+	- 결과가 0인 경우 두 워드는 동일
+
+[이미지 자리]
+- 프로그램 인터럽트
+	1. 레지스터들의 내용을 저장
+		- M[xx] <-- REGs
+		- IEN <-- 0 (by IOFF)
+	1. FGI/FGO Flag들의 값 체크
+	1. 인터럽트 서비스 루틴 수행
+	1. 레스터 내용 원상 복구
+		- REGs <-- M[xx]
+	1. 인터럽트 기능 ON
+		- IEN <-- 1(by ION)
+	1. 원래 프로그램으로 복귀
