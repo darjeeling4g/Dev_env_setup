@@ -301,6 +301,7 @@ LD (R1)+	;Autoincrement
 		- 인터럽트 처리 루틴의 주소는 하드웨어적으로 결정되어 있음
 		- PC값만이 아니라 CPU의 다른 상태를 나타내는 정보도 대피(메모리에 저장)
 	- PSW(program status word)
+		> 현재 프로그램이 중단되고 다른 프로그램(BIOS)가 실행되어야 하기 때문에 현재 실행되는 프로그램에 대한 정보들은 저장(상태 조건 비트까지도)
 		- 인터럽트가 발생될 때 저장하는 CPU정보
 		- PSW로 저장되는 데이터
 			1. 프로그램 카운터(PC)의 값
@@ -317,6 +318,10 @@ LD (R1)+	;Autoincrement
 		- supervisor call명령, system call
 ### 7. 간소화된 명령어 집합 컴퓨터(RISC)
 - RISC(Reduced instruction set computer)개요
+	> 기존 시스템 대비 명령어가 매우 줄어든(reduced) 시스템  
+	> PC를 제외한 대부분의 중대형 프로세서는 RISC방식을 사용하고 있음
+	>> 명령어의 수가 늘어날수록 자연스럽게 제어장치 수는 많아질 수 밖에 없음  
+	>> 이를 줄임으로써 효율적으로 설계가 가능해짐
 	- 1980년, UC Berkeley David. A. Patterson교수가 설계
 	- CISC(Complex Instruction Set Computer)에 비하여 새로운 설계 개념 제시
 	- 새로운 마이크로 아키텍쳐와 명령어 구조 제시
@@ -337,16 +342,25 @@ LD (R1)+	;Autoincrement
 		- 많은 수의 레지스터(128개 이상)
 		- 제어장치를 하드와이어 방식으로 구현
 	- 효과적인 명령어 파이프라인 사용
+		> 9장에서 관련내용을 다룰 예정
 	- 프로시저의 빠른 호출/복귀를 위한 중첩된 레지스터 윈도우 사용
 	- 빠르고 효과적인 구조의 컴파일러
 	- 고정 길이 명령어 사용으로 간단한 디코딩
 	- 단일 사이클의 명령어 실행
+		> 클럭수를 극적으로 줄일 수 있기 때문에 발열, 전력소모, 안정성 측면에서 매우 유리하다
 - 중첩된 레지스터 윈도우
+	> 많은 수의 레지스터를 가지고 있기 때문에 각 프로시저가 배타적으로 특정 레지스터 그룹을 독자적으로 사용함
+	>> 그 중 각 프로시저 간 공유하여 사용하는 레지스터 그룹도 존재한다  
+	>> 이 공유 레지스터 공간을 통해서 데이터를 서로 주고받을 수 있음
 	- 프로시저에 사용할 파라미터를 전달
 	- 중첩된 윈도우를 통하여 보호모드에서 빠른 데이터 전달
 	- 많은 수의 레지스터로 인한 구조적 장점
 - Berkeley RISC I 명령어 구조
+	> 3개의 명령어 만 존재한다  
+	> 명령어의 길이가 모두 32bit로 동일
+	> register mode 명령어는 주소에 대한 정보가 없음(register만으로 연산을 수행하므로)
 	- opcode(8bit) : Rd(5bit) : Rs(5bit) : 0(1bit) : Not used(8bit) : S2(5bit)
+		> Rd : register destination / Rs : register source  
 		> Register mode
 	- opcode(8bit) : Rd(5bit) : Rs(5bit) : 1(1bit) : S2(13bit)
 		> Register-immediate mode
