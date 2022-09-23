@@ -10,7 +10,7 @@
 - [Chapter4 Register Transfer and Microoperations](./CSA/video_lecture/CSA_Dr_Chang_chapter4.md)
 - [Chapter5 Basic Computer Organization and Design](./CSA/video_lecture/CSA_Dr_Chang_chapter5.md)
 - [Chapter6 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter6.md)
-- [Chapter8 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
+- [Chapter8 Central Processing Unit](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
 
 ## Unix/Linux
 ### GNU
