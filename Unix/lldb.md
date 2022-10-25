@@ -73,4 +73,4 @@
 	```
 - `display` : 변수 값을 고정적으로 띄어놓고 변하는 값을 즉시 확인 가능
 
-##### [`leaks`와 연계한 memory leak 잡는 방법]()
+##### [`leaks`와 연계한 memory leak 잡는 방법](./command.md)
