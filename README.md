@@ -15,9 +15,9 @@
 ## Unix/Linux
 - [Basic Linux Command](./Unix/command.md)
 - [lldb(Low-Level Debugger)](./Unix/lldb.md)
-### GNU
-- [GCC](./Unix/GNU/GCC.md)
-- [Make](./Unix/GNU/make.md)
+- GNU
+	- [GCC](./Unix/GNU/GCC.md)
+	- [Make](./Unix/GNU/make.md)
 
 ## Programming Language
 ### C
