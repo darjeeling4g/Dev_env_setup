@@ -42,7 +42,18 @@ set listchars=tab:\|\ ,eol:↲,space:·,nbsp:␣,trail:•,extends:»,precedes:�
 " guifg : GUI 적용 색상
 hi NonText ctermfg=7 guifg=gray
 hi SpecialKey ctermfg=7 guifg=gray
-
+if has('mac') && filereadable('/usr/local/lib/libInputSourceSwitcher.dylib')
+  autocmd InsertLeave * call libcall('/usr/local/lib/libInputSourceSwitcher.dylib', 'Xkb_Switch_setXkbLayout', 'com.apple.keylayout.US')
+endif
+" insert모드에서 한글입력 중 명령모드로 나왔을때 자동으로 한영 전환을 해주기
+" 위함 아래 input-source-switcher.git 설치가 선행되어야 함
+" git clone git@github.com:vovkasm/input-source-switcher.git
+" cd input-source-switcher
+" mkdir build
+" cd build
+" cmake ..
+" make
+" make install
 
 " -----------------------------------------------
 " 2. Key mapping.
