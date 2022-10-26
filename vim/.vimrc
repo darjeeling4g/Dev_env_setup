@@ -59,6 +59,9 @@ endif
 " -----------------------------------------------
 
 " (n : nomal mode / nore : non-recursive / map : mapping)
+" <BAR> : '|' vertical bar / <CR> : carriage return / <C-...> : control-key
+" <leader> : default로 '\'되어 있음, 이를 변경하기 위해서는 let mapleader=""
+" <silent> : Key mapping sequence가 실행될때, 별도 메시지 표출하지 않음
 " 신규 buffer 생성 = ctrl+t
 nnoremap <C-t> :enew<CR>
 " 현재 버퍼 종료 후 이전 버퍼로 이동 = ctrl+x
