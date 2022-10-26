@@ -7,13 +7,13 @@
 <details>
 <summary>[ Click to expand ]</summary>
 
-- [Chapter1 Digital Logit Circuits](./CSA/video_lecture/CSA_Dr_Chang_chapter1.md)
-- [Chapter2 Digital Components](./CSA/video_lecture/CSA_Dr_Chang_chapter2.md)
-- [Chapter3 Data Representation](./CSA/video_lecture/CSA_Dr_Chang_chapter3.md)
-- [Chapter4 Register Transfer and Microoperations](./CSA/video_lecture/CSA_Dr_Chang_chapter4.md)
-- [Chapter5 Basic Computer Organization and Design](./CSA/video_lecture/CSA_Dr_Chang_chapter5.md)
-- [Chapter6 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter6.md)
-- [Chapter8 Central Processing Unit](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
+1. [Chapter1 Digital Logit Circuits](./CSA/video_lecture/CSA_Dr_Chang_chapter1.md)
+1. [Chapter2 Digital Components](./CSA/video_lecture/CSA_Dr_Chang_chapter2.md)
+1. [Chapter3 Data Representation](./CSA/video_lecture/CSA_Dr_Chang_chapter3.md)
+1. [Chapter4 Register Transfer and Microoperations](./CSA/video_lecture/CSA_Dr_Chang_chapter4.md)
+1. [Chapter5 Basic Computer Organization and Design](./CSA/video_lecture/CSA_Dr_Chang_chapter5.md)
+1. [Chapter6 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter6.md)
+1. [Chapter8 Central Processing Unit](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
 </details>
 
 ## System Programming
