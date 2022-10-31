@@ -3,5 +3,5 @@
 ## Iterm
 
 ## Vim
-### [vimrc](../vim/.vimrc)
+### [vimrc](../Unix/vim/.vimrc)
 > My vimrc file.

@@ -66,6 +66,7 @@
 
 ## Unix/Linux
 - [Basic Linux Command](./Unix/command.md)
+- [Vi / Vim](./Unix/vim.md)
 - [lldb(Low-Level Debugger)](./Unix/lldb.md)
 - GNU
 	- [GCC](./Unix/GNU/GCC.md)
