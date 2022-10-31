@@ -89,11 +89,96 @@
 - 시스템콜
 	- 사용자 프로그램이 운영체제의 서비스를 받기 위해 커널 함수를 호출하는 것
 ### 8. 동기식 입출력과 비동기식 입출력
-	
+- 동기식 입출력(synchronous I/O)
+	> I/O요청에 대한 결과를 정확히 받은 이후에 다음 instruction실행
+	- I/O요청 후 입출력 작업이 완료된 후에야 제어가 사용자 프로그램에 넘어감
+	- 구현 방법1
+		- I/O가 끝날 때까지 CPU를 낭비시킴
+		- 매시점 하나의 I/O만 일어날 수 있음
+	- 구현 방법2
+		- I/O가 완료될 때까지 해당 프로그램에게서 CPU를 빼앗음
+		- I/O 처리를 기다리는 줄에 그 프로그램을 줄 세움
+		- 다른 프로그램에게 CPU를 줌
+- 비동기식 입출력(asynchronous I/O)
+	> I/O에 대한 결과와 상관없이 기다리지 않고 할 수 있는 동작들을 먼저 수행
+	- I/O가 시작된 후 입출력 작업이 끝나기를 기다리지 않고 제어가 사용자 프로그램에 즉시 넘어감
+> 두 경우 모두 I/O의 완료는 인터럽트로 알려줌
 ### 9. DMA(Direct Memory Access)
+- DMA(Direct Memory Access)
+	- 빠른 입출력 장치를 메모리에 가까운 속도로 처리하기 위해 사용
+	- CPU의 중재 없이 device controller가 device의 buffer storage의 내용을 메모리에 block단위로 직접 전송
+	- 바이트 단위가 아니라 block단위로 인터럽트를 발생시킴
+		> buffer 에 어느정도 데이터가 쌓였을 때 인터럽트를 발생시킴
 ### 10. 서로 다른 입출력 명령어
+- I/O를 수행하는 special instruction에 의해
+	> (일반적인 경우) memory에 접근하는 instruction은 별도로 존재하고, 각 I/O device들에 접근하는 instruction도 별도로 정의
+- Memory Mapped I/O에 의해
+	> I/O device에 메모리주소를 메겨서, 메모리에 접근하는 instruction을 사용하는 방식
 ### 11. 저장장치 계층 구조
+	---------------------------------------
+	Primary			|Registers|
+	(Executable)		|Cache memory|
+				|Main Memory|
+	---------------------------------------
+	Secondary		|Magnetic Disk|
+				|Optical Disk|
+				|Magnetic Tape|
+> 위로 갈수록 Speed, Cost, Volatility(휘발성) 가 높다
+>> Cost가 높으므로 적은 용량을 사용한다
+
+> Primary : CPU에서 직접 접근가능 / Secondary : CPU가 직접 접근해서 처리불가
+>> CPU가 직접 접근 하기 위해서는 바이트 단위로 접근이 가능해야함 / Secondary는 섹터 단위 등으로 접근되므로 불가능
+
+> Caching : copying information into faster storage system
+>> 캐시메모리는 주로 CPU와 메인메모리의 속도차를 완충하는 역할을 하며, 주로 재사용에 목적에 있음
 ### 12. 프로그램의 실행(메모리 load)
+1. 프로그램은 기본적으로 실행파일의 형태로File system내부에 저장되어 있음
+1. 실행파일을 실행시키면 Virtual memory를 거치며 프로세스의 주소공간 생성함
+	- 프로그램을 실행시키면 그 프로그램의 독자적인 주소공간(Address space)가 생성됨
+	- 주소공간(address space)은 stack, data, code로 구성됨
+		- code : CPU에서 실행할 기계어 코드를 담고 있음
+		- data : 변수, 전역변수와 같은 프로그램이 사용하는 자료구조를 담고 있음
+		- stack : 함수를 호출하거나 리턴할 때 데이터를 저장하는데 사용
+1. 위의 과정을 거쳐 프로그램이 Physical memory위에 프로세스의 형태로 올라가게 되어 동작함
+	> 프로세스의 주소공간(논리적 주소)이 메모리(물리적 주소)로 올라오기 위해서 Address translation을 거침
+	>> 각 프로세스의 주소공간은 모두 0번부터 시작하므로 해당작업이 필요함 : 별도의 하드웨어에서 수행
+	- Physical memory 위에는 커널 영역과 User 영역으로 분리되며, 다양한 프로세스들이 올라와 동작을 수행함
+		- 커널 : 부팅 후에 메모리상 커널 영역에 한번 올라가면 항상 상주해 있음
+			> 프로그램과 동일하게 code, data, stack으로 구성된 주소공간을 가짐
+		- 사용자 프로그램 : Virtual memory에서 생성된 주소공간이 User영역에 올라와 동작하다가 프로세스의 종료와 함께 사라짐
+			> 메모리의 효율적인 사용을 위해 virtual memory에서 생성된 주소공간을 모두 올리지 않음(당장 필요한 요소만 부분적으로 올리기를 반복)
+			>> Physical memory에서 당장 사용되지 않은 주소공간들은 Swap area에 보관(swap area : 디스크에 일부 할당된 공간이 있음)
 ### 13. 커널 주소 공간의 내용
+- Code 영역
+	- 커널 코드
+		- 시스템콜, 인터럽트 처리 코드
+		- 자원 관리를 위한 코드
+		- 편리한 서비스 제공을 위한 코드
+- Data 영역
+	- 각 하드웨어 관리를 위한 개별적인 자료구조
+		> CPU, memory, disk 등
+	- 각 프로세스 관리를 위한 개별적인 자료구조 : PCB(process control block)
+- Stack 영역
+	- 사용자 프로그램의 요청을 수행하기 위한 각 프로세스별 커널 스택
 ### 14. 사용자 프로그램이 사용하는 함수
+- 함수(function)
+	- 사용자 정의 함수
+		> 프로세스 Address space상 code영역에 포함되어 있음
+		- 자신의 프로그램에서 정의한 함수
+	- 라이브러리 함수
+		> 프로세스 Address space상 code영역에 포함되어 있음
+		- 자신의 프로그램에서 정의하지 않고 갖다 쓴 함수
+		- 자신의 프로그램의 실행 파일에 포함되어 있다
+	- 커널 함수
+		> Kernel Address space상 code영역에 포함되어 있음
+		- 운영체제 프로그램의 함수
+		- 커널 함수의 호출 = 시스템 콜
 ### 15. 프로그램의 실행
+			User Mode		Kernel Mode			User Mode		Kernel Mode
+	Program begins ----------> System call -----------> Return from Kernel ----------> System call -----------> Program ends
+			|							|
+			|							|
+			|							|
+			User defined function call				Library function call
+
+> 지속적으로 user mode / kernel mode를 반복함
