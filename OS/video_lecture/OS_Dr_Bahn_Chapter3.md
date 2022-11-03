@@ -26,7 +26,7 @@
 	- New : 프로세스가 생성중인 상태
 	- Terminated : 수행(execution)이 끝난 상태
 ### 3. 프로세스 상태도
-		admitted		interupt		exit
+		admitted		(timer)interupt		exit
 	[New] ----------->> | R | <<------------------- | R | ------->> [Terminated]
 			    | e |		        | u |
 			    | a | ------------------->> | n |
@@ -35,9 +35,14 @@
 			    |   |		        | n |
 			    |   | <<--- [Waiting] <<--- | g |
 				 I/O or		    I/O or
-				event completion    event completion
+				event completion    event wait
+![process\_state](../../asset/img/process_state.png)
 
 ### 4. Process Control Block(PCB)
+- PCB
+	- 운영체제가 각 프로세스를 관리하기 위해 프로세스당 유지하는 정보
+	- 다음의 구성 요소를 가진다(구조체로 유지)
+	
 ### 5. 문맥교환(Context Switch)
 ### 6. 프로세스를 스케줄링하기 위한 큐
 ### 7. Ready Queue와 다양한 Device Queue
