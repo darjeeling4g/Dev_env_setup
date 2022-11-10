@@ -42,25 +42,23 @@
 
   - 서로 다른 branch를 병합하여 새로운 커밋을 생성
 
-    > 2개의 branch를 합치게 되므로 log상 부모가 2개가 됨
+    > 2개의 branch를 합치게 되므로 log상에서 부모가 2개가 됨
 
 
 - merge conflict
 
+  - 동일한 파일을 수정한 서로 다른 커밋을 merge했을때 발생
+    > 직접 파일을 수정해주어야 함
+    
+    ```git
+    <<<<<<HEAD
+    text1
+    ===========
+    text2
+    >>>>>>branch1
+    ```
+    > 위와 같이 변경된 파일을 원하는대로 수정후에 `git add` , `git commit` 을 진행하면됨
 
-    - 서로 다른 커밋이 동일한 파일을 수정했을 경우 발생
-      
-      > 직접 파일을 수정해주어야 함
-      
-        ```git
-        <<<<<<HEAD
-        text1
-        ===========
-        text2
-        >>>>>>branch1
-        ```
-      
-        > 위와 같이 변경된 파일을 원하는대로 수정후에 `git add` , `git commit` 을 진행하면됨
 
 
 
@@ -87,37 +85,35 @@
 > 베이스를 변경한다
 
 1. 두 브랜치 공통 부모를 찾는다
-2. a1부터 현재까지 커밋 수집
-3. main을 새 베이스로
+2. 공통부모 이후부터 현재까지 커밋 수집
+3. rebase를 실행한 branch를 새 베이스로
 4. 커밋을 새로 쌓는다
 
-> 최종 rebase된 커밋들은 해시값이 바뀜
+> 최종 rebase된 커밋들은 해시값이 변경됨
 >
 > > 즉, cherry-pick을 여러번 수행한 것과 같음
 
 - rebase conflict
   - merge confilct와 동일하게 충돌나는 지점을 직접 수정해줘야 한다
-
 - merge vs rebase
   - 완료한 시점에서 봤을 때, 두 개의 branch를 합친다는 점은 동일함
   - merge : merge를 진행한 별도의 새로운 커밋이 생김
   - rebase : 생성한 커밋을들 순차적으로 정렬할 수 있음
-    - 정렬된 커밋들의 해시값이 바뀌므로 다른 사용자 입장에서는 아예 다른 작업이 됨
-    - 강제로 푸쉬해야 한다
-    - 여러 사람과 함께 사용할때는 merge를 사용하는 것이 바람직
-    - `git push -f`
+    - 정렬된 커밋들의 해시값이 바뀌므로 다른 사용자 입장에서는 동일한 커밋이라도 완전히 다른 작업으로 인식함
+    - 원격 저장소로  올리기 위해서는 강제로 푸쉬해야 한다 : `git push -f`
+    - 여러 사람과 함께 사용할때는 merge를 사용하는 것이 바람직함
 
 #### checkout & switch
   - switch : branch만 이동 가능
-  - checkout : branch, tag, commit등으로 이동 가능(다양한 기능을 수행 )
+  - checkout : branch, tag, commit등으로 이동 가능(switch 보다 더 다양한 기능을 수행 )
 
 #### 원격 저장소 변경하기
 
 - `git remote remove origin`  : 현재 원격저장소 연결 끊기
 - `git remote -v` : 현재 연결된 원격저장소 확인
-- `git remote []` : 새로운 원격저장소 연결
+- `git remote [주소값]` : 새로운 원격저장소 연결
 
-#### git command
+#### git log 한눈에 보기
 
 - glog?
 
@@ -127,11 +123,21 @@
     >
     > > 저장위치는 `/$HOME/.oh-my-zsh/plugins/git`에서 확인 가능
 
-- git log --oneline --decorate --graph --all
+- `git log --oneline --decorate --graph --all`
+
+  - --oneline : 커밋로그를 한줄로 요약해서 표시
+
+  - --decorate : 브랜치와 태그 등의 참조를 간결히 표시
+
+    > --decorate==short 를 의미함
+
+  - --graph : 브랜치의 흐름을 표시
+
   - --all : 모든 브랜치에 대해서 표시
+
 - git alias 설정예시
-  - git config --global alias.l "log --oneline --decorate --gragh"
-  - git config --global alias.la "log --oneline --decorate --gragh --all"
+  - `git config --global alias.l "log --oneline --decorate --gragh"`
+  - `git config --global alias.la "log --oneline --decorate --gragh --all"`
 
 -----
 
@@ -145,13 +151,15 @@
 
 - git stash pop
 
-- 파일 작업하다가 다른 브랜치로 이동할 경우
+  > 한번 실행할 때마다 스택에 저장되어 있는 변경사항들을 하나씩 꺼냄
+
+- 파일 작업하다가 다른 브랜치로 잠시 이동할 경우 커밋을 추가로 생성하지 않기위해 사용
 
 #### 이전 커밋으로 잠시 돌아가기
 
 - git checkout {commit의 해시값}
 
-  > 다시 앞으로 돌아가려고 할때는 앞의 커밋로그를 확인할 수 없으므로 `git checkout {branch 이름}` 로 맨앞으로 이동
+  > 이전 커밋에서 다시 현재 커밋으로 돌아가려고 할때는 이후 커밋정보를 확인할 수 없으므로 `git checkout {branch 이름}` 로 맨앞으로 이동
 
 #### 이전 커밋을 삭제하기
 
@@ -169,7 +177,7 @@
 
 - git reflog : 현재까지 수행한 모든 작업에 대한 log가 남아있음
 
-  > 위의 log로 다시 되돌리고 싶은 해시값을 찾아 git reset --hard {해시값}으로 되돌릴 수 있음
+  > 위의  command로 다시 되돌리고 싶은 해시값을 찾아 git reset --hard {해시값}으로 되돌릴 수 있음
 
 #### 커밋을 수정하기
 
@@ -201,4 +209,4 @@
 
 #### 유용한 Reference
 
-- Learn git branching
+- [Learn git branching](https://learngitbranching.js.org/)
