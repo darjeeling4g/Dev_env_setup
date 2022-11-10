@@ -5,7 +5,8 @@
 		> register : CPU 내부에 존재하는 memory보다 빠른 속도를 가지는 저장공간  
 		> mode bit : CPU에서 실행되는 것이 운영체제인지 사용자 프로그램인지 구분해줌  
 		> interrupt line : memory의 instruction을 수행하는 도중 다른 디바이스에 대한 요청을 인식하기 위함
-		>> CPU는 항상 instruction을 수행하고 다음 instruction을 수행하기 이전에 인터럽트 발생유무를 확인함
+		>
+		> > CPU는 항상 instruction을 수행하고 다음 instruction을 수행하기 이전에 인터럽트 발생유무를 확인함
 	- Memory
 		> CPU의 작업공간
 		>> OS, 사용자 프로그램 코드 등을 담고있음
@@ -27,7 +28,7 @@
 
 		1	사용자 모드 : 사용자 프로그램 수행
 		0	모니터 모드 : OS코드 수행
-
+		
 		// 모니터 모드 = 커널 모드 = 시스템 모드
 	- 보안을 해칠 수 있는 중요한 명령어는 모니터 모드에서만 수행 가능한 **특권명령** 으로 규정
 	- Interrupt나 Exception 발생시 하드웨어가 mode bit을 0으로 바꿈
@@ -50,7 +51,7 @@
 
 		divice driver(장치구동기)
 		: OS 코드 중 각 장치별 처리루틴 --> software
-
+		
 		device controller(장치제어기)
 		: 각 장치를 통제하는 일종의 작은 CPU --> hardware
 ### 5. 입출력(I/O)의 수행

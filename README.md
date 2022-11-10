@@ -79,3 +79,8 @@
 
 ## etc.
 - [My development environment setup](./etc/dev_env_setup.md).
+
+- [Git tips](./etc/git_tips.md)
+
+  > 2022.11.10 [목요특강] GIT과 더 친해져 봅시다 by. 박성민 멘토
+

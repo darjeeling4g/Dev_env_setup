@@ -42,8 +42,9 @@
 			    |   | <<--- [Waiting] <<--- | g |
 				 I/O or		    I/O or
 				event completion    event wait
-![process\_state](../../asset/img/process_state.png)
-![process\_state](../../asset/img/process_state_advanced.png)
+
+<img src="../../asset/img/process_state.png" alt="process\_state" style="zoom:67%;" />
+<img src="../../asset/img/process_state_advanced.png" alt="process\_state\_advanced" style="zoom:67%;" />
 
 > Suspended state가 추가된 버전
 
@@ -76,7 +77,7 @@
 		                   |                                 |
 		                   |                                 |
 		       interrupt or system call           문맥교환 없이 user mode 복귀	
-
+		
 		(2)
 		[User mode] --------------->> [kernel mode] --------------->> [User mode]
 		사용자 프로세스A       |      ISR or system call함수      |        사용자 프로세스B
@@ -130,7 +131,7 @@
 	> CPU가 여러개 존재하는 시스템에서만 해당하는 사항
 - 프로세스는 생성될 때마다 새로운 주소공간을 할당받아야 하므로 메모리가 낭비될 수 있지만 쓰레드를 사용하면 메모리 측면에서 이점을 얻을 수 있음
 ### 9. Single and Multithreaded Processes
-![process\_state](../../asset/img/multithread.png)
+<img src="../../asset/img/multithread.png" alt="multithread" style="zoom:67%;" />
 ### 10. Benefits of Thread
 - Responsiveness
 	- eg) multi-threaded Web
