@@ -80,7 +80,11 @@
 ## etc.
 - [My development environment setup](./etc/dev_env_setup.md).
 
+#### Conference / Meet up
 - [Git tips](./etc/git_tips.md)
 
   > 2022.11.10 [목요특강] GIT과 더 친해져 봅시다 by. 박성민 멘토
 
+- [42에서 취업준비하기](./etc/survive_in_42.md)
+
+  > 2022.11.24 [목요특강] 42서울에서 취업준비하기 by. 배권한 멘토
