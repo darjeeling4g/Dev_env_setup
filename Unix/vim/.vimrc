@@ -101,7 +101,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " -----------------------------------------------
-" 4. Plugins setting. 
+" 4. Plugins setting.
 " -----------------------------------------------
 
 let g:airline_theme='luna'
@@ -115,3 +115,18 @@ let g:airline_powerline_fonts = 1
 let g:mkdp_auto_start = 0
 " set default theme (dark or light)
 let g:mkdp_theme = 'dark'
+
+" -----------------------------------------------
+" 5. User-defined function.
+" -----------------------------------------------
+
+" 커서가 중앙에 오도록 하는 함수
+" <https://stackoverflow.com/questions/13398631/always-keep-the-cursor-centered-in-vim>
+function! CentreCursor()
+    let pos = getpos(".")
+    normal! zz
+    call setpos(".", pos)
+endfunction
+
+" 위에 정의된 함수 호출
+autocmd CursorMoved,CursorMovedI * call CentreCursor()
