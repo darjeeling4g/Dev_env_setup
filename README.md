@@ -88,3 +88,6 @@
 - [42에서 취업준비하기](./etc/survive_in_42.md)
 
   > 2022.11.24 [목요특강] 42서울에서 취업준비하기 by. 배권한 멘토
+
+- [Hexo로 Github Blog 만들기](./etc/hexo_github_blog.md)
+  > 2022.12.3 [온라인 특강] Hexo로 Github Blog 만들기 by. rubykim 멘토
