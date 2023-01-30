@@ -1,13 +1,14 @@
 # Vim(Vi IMproved)
 ### 1. Motion Commands
+
 ### 2. Text Objects
 1. Structure of an Editing Command
 	- vim에서의 편집 명령 구조는 아래와 같다
 
 			[숫자] [명령] [텍스트 개체 or 모션]
-
+			
 			또는
-
+			
 			[명령] [숫자] [텍스트 개체 or 모션]
 
 		- 숫자(number) : 여러 텍스트 개체 또는 모션에 걸쳐 명령을 실행, 숫자는 선택사항이며 명령의 앞이나 뒤에 쓸 수 있다
@@ -22,7 +23,7 @@
 		```vim	
 		Lorem ipsum dolor sit amet...
 		" 편집 명령 실행 전
-
+		
 		Lorem dolor sit amet...
 		" daw 실행 후
 		```
@@ -37,7 +38,7 @@
 		ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 		nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 		" 편집 명령 실행 전
-
+		
 		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 		nisi ut aliquip ex ea commodo consequat.
 		"cis 실행 후
@@ -51,12 +52,12 @@
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
 		nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+		
 		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 		mollit anim id est laborum.
 		" 편집 명령 실행 전
-
+		
 		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia desrunt
 		mollit anim id est laborum.
@@ -134,3 +135,22 @@
 		" cit 실행 후
 		```
 4. Reference : [Vim Text Objects : The Definitive Guide](https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/)
+
+### etc.
+
+- `[ + i`  : 함수 헤더 확인
+
+- `:help keyword` :  keyword man
+
+- tmux  사용 시 장점  : 터미널 세션이 계속 유지됨으로 서버등일 실행 시키며 별도 작업이 가능해짐
+
+- `ctags`: 별도 plugin 파일 내 함수등 탐색
+
+- `insert mode`내에서 `C + p`를 입력하여, 함수-헤더 내에 있는 함수 자동완성
+
+- `bufdo` : 일정한 instruction 파일들에 일괄적용
+
+    - `bufdo! [instruction]` 의 형태로 작성
+- `text object` 를 이용한 파일 수정
+- `r:` 을 이용해서 외부 파일을 가져올 수 있음
+    - ex ) :r !ls or :r cat [file name]
