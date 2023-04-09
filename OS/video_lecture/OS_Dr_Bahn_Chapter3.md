@@ -34,7 +34,7 @@
 ### 3. 프로세스 상태도
 		admitted		(timer)interupt		exit
 	[New] ----------->> | R | <<------------------- | R | ------->> [Terminated]
-			    | e |		        | u |
+					| e |		        | u |
 			    | a | ------------------->> | n |
 			    | d |   scheduler dispatch  | n |
 			    | y |		        | i |
@@ -100,7 +100,7 @@
 	- 시작 프로세스 중 어떤 것들을 ready queue로 보낼지 결정
 	- 프로세스에 memory(및 각종 자원)을 주는 문제
 	- degree of Multiprogramming을 제어
-	- time sharing system에는 보통 장기 스케줄러가 없음(무조간 ready)
+	- time sharing system에는 보통 장기 스케줄러가 없음(무조건 ready)
 		> 일반적으로 사용하는 시스템에는 존재하지 않음
 		>> 프로그램에 시작하면 무조건 바로 메모리에 올려놓음
 - Short-term scheduler(단기 스케줄러 or CPU scheduler)
