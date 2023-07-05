@@ -149,8 +149,13 @@
 - `insert mode`내에서 `C + p`를 입력하여, 함수-헤더 내에 있는 함수 자동완성
 
 - `bufdo` : 일정한 instruction 파일들에 일괄적용
+	- `bufdo! [instruction]` 의 형태로 작성
 
-    - `bufdo! [instruction]` 의 형태로 작성
 - `text object` 를 이용한 파일 수정
+
 - `r:` 을 이용해서 외부 파일을 가져올 수 있음
-    - ex ) :r !ls or :r cat [file name]
+	- ex ) :r !ls or :r cat [file name]
+
+- `Ctrl + z`: 현재 실행중인 vim process를 suspend시키고 터미널로 빠져나갈 수 있음
+	- `jobs`: 현재 suspend 되어있는 작업들을 확인가능
+	- `fg %번호`: suspend되어있는 프로세스를 다시 forground로 복귀시킴
