@@ -7,7 +7,7 @@
 > by Peter Shirley, Trevor David Black, Steve Hollasch
 - [Ray Tracing in One Weekend](./Graphics/RT_in_one_weekend)
 
-### [Introduction to Computer Graphics with DirectX11](Graphics/Introduction_to_CG_with_DX11/README)
+### [Introduction to Computer Graphics with DirectX11](./Graphics/Introduction_to_CG_with_DX11/README)
 > by Jeong-Mo Hong
 
 ## Computer System Architecture
