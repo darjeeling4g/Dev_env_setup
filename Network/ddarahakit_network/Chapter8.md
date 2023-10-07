@@ -1,7 +1,5 @@
 # Network Chapter 8 : 비연결지향형 UDP 프로토콜
 
-[TOC]
-
 ## 1. UDP 프로토콜
 
 ### UDP가 하는 일

@@ -1,7 +1,5 @@
 # Network Chapter 5 : 통신하기 전 반드시 필요한 ARP 프로토콜
 
-[TOC]
-
 ## 1. ARP 프로토콜
 
 ### ARP가 하는 일

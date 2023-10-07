@@ -1,7 +1,5 @@
 # Network Chapter 11 : 7계층 프로토콜 HTTP
 
-[TOC]
-
 ## 1. HTTP 프로토콜
 
 ### 웹을 만드는 기술들
