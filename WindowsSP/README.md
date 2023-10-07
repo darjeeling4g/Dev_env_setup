@@ -9,7 +9,7 @@
 - ## Chapter6. [커널 오브젝트와 오브젝트 핸들](Chapter6.md)
 - ## Chapter7. [프로세스간 통신(IPC) 1](Chapter7.md)
 - ## Chapter8. [프로세스간 통신(IPC) 2](Chapter8.md)
-- ## Chapter9. [스케줄링 알고리즘과 우선순위](hapter9.md)
+- ## Chapter9. [스케줄링 알고리즘과 우선순위](Chapter9.md)
 - ## Chapter10. [컴퓨터 구조에 대한 세 번째 이야기](Chapter10.md)
 - ## Chapter11. [쓰레드의 이해](Chapter11.md)
 - ## Chapter12. [쓰레드의 생성과 소멸](Chapter12.md)

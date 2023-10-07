@@ -63,12 +63,12 @@ $$
 - 행렬 벡터
 	-  2차원에서는 숫자 2개, 3차원에서는 숫자 3개
 	- $u = (1, 2, 3)$
-	- $u = \begin{bmatrix} 1\\2\\3 \end{bmatrix} = \begin{bmatrix} 1&2&3 \end{bmatrix}^T$
+	- $u = \begin{bmatrix} 1\\\2\\\3 \end{bmatrix} = \begin{bmatrix} 1&2&3 \end{bmatrix}^T$
 	 > T : Transpose (전치행렬)
 
 - Homogeneous Coordinates (동차좌표)
-	- $u = \begin{bmatrix} 1\\2\\3\\0 \end{bmatrix}$ : 벡터
-	- $u = \begin{bmatrix} 1\\2\\3\\1 \end{bmatrix}$ : 포인트
+	- $u = \begin{bmatrix} 1\\\2\\\3\\\0 \end{bmatrix}$ : 벡터
+	- $u = \begin{bmatrix} 1\\\2\\\3\\\1 \end{bmatrix}$ : 포인트
 	 > 행렬의 마지막 값이 0이면 벡터, 아니면 포인트(보통 1)
 
 ## 레스터화가 빠른 이유
