@@ -1,9 +1,10 @@
 # Operating System Chapter 3 : Process
+
 ### 1. 프로세스의 개념
 - **"Process is a program in execution"**
 - 프로세스의 문맥(context)
-	> 현재 시점에 프로세스 진행상태를 규명할 수 있게 함
-	>> CPU가 프로세스를 한번에 수행하지 않기 때문에 백업용으로 필요함
+    >현재 시점에 프로세스 진행상태를 규명할 수 있게 함
+    >> CPU가 프로세스를 한번에 수행하지 않기 때문에 백업용으로 필요함
 	- CPU 수행 상태를 나타내는 하드웨어 문맥
 		- Program Counter
 		- 각종 register
@@ -12,6 +13,7 @@
 	- 프로세스 관련 커널 자료 구조
 		- PCB(Process Control Block)
 		- Kernel stack
+
 ### 2. 프로세스의 상태(Process State)
 > CPU가 하나밖에 없는 시스템으로 가정
 - 프로세스는 상태(state)가 변경되며 수행된다
@@ -31,6 +33,7 @@
 		> Suspended : 외부에서 resume해 주어야 Active
 	- New : 프로세스가 생성중인 상태
 	- Terminated : 수행(execution)이 끝난 상태
+
 ### 3. 프로세스 상태도
 		admitted		(timer)interupt		exit
 	[New] ----------->> | R | <<------------------- | R | ------->> [Terminated]
@@ -43,7 +46,8 @@
 				 I/O or		    I/O or
 				event completion    event wait
 
-<img src="../../asset/img/process_state.png" alt="process\_state" style="zoom:67%;" />
+<img src="/asset/img/process_state.png" alt="process\_state" style="zoom:67%;" />
+
 <img src="../../asset/img/process_state_advanced.png" alt="process\_state\_advanced" style="zoom:67%;" />
 
 > Suspended state가 추가된 버전
@@ -130,8 +134,10 @@
 - 스레드를 사용하면 병렬성을 높일 수 있다
 	> CPU가 여러개 존재하는 시스템에서만 해당하는 사항
 - 프로세스는 생성될 때마다 새로운 주소공간을 할당받아야 하므로 메모리가 낭비될 수 있지만 쓰레드를 사용하면 메모리 측면에서 이점을 얻을 수 있음
+
 ### 9. Single and Multithreaded Processes
 <img src="../../asset/img/multithread.png" alt="multithread" style="zoom:67%;" />
+
 ### 10. Benefits of Thread
 - Responsiveness
 	- eg) multi-threaded Web
@@ -145,6 +151,7 @@
 - Utilization of MP Architecture
 	> processor가 여러개인 architecture 즉, cpu가 여러개인 시스템에만 해당
 	- each thread may be running in parallel on a different processor
+
 ### 11. Implemetation of Threads
 - Some are supported by kernel : kernel threads
 	> thread가 여러개인 사실을 kernel이 알고있음

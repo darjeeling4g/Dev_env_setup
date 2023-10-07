@@ -1,6 +1,18 @@
 # TIL
 > Today I Learned
 
+## Computer Graphics
+#### Ray Tracing in One Weekend series
+> by Peter Shirley, Trevor David Black, Steve Hollasch
+- [Ray Tracing in One Weekend](./Graphics/RT_in_one_weekend)
+
+#### Introduction to Computer Graphics with DirectX11
+> by Jeong-Mo Hong
+- Part 1. [Basic Concepts of Rendering](./Graphics/Introduction_to_CG_with_DX11/Part1.md)
+- Part 2. [Realtime Pipeline]()
+- Part 3. [Rendering Techniques]()
+- Part 4. [Computer Animation]()
+
 ## Computer System Architecture
 #### CSA Dr.Chang Video Lecture
 > Based on Computer System Architecture by M.Moris Mano
@@ -15,6 +27,29 @@
 1. [Chapter6 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter6.md)
 1. [Chapter8 Central Processing Unit](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
 </details>
+
+## Operating System
+#### OS Dr.Bahn Video Lecture
+> Based on Operating System Concepts by A.Silberschatz et al.
+<details>
+<summary>[ Click to expand ]</summary>
+
+1. [Chapter1 Introduction to Operating Systems](./OS/video_lecture/OS_Dr_Bahn_Chapter1.md)
+1. [Chapter2 System Structure & Program Execution](./OS/video_lecture/OS_Dr_Bahn_Chapter2.md)
+1. [Chapter3 Process](./OS/video_lecture/OS_Dr_Bahn_Chapter3.md)
+1. [Chapter4 ](./OS/video_lecture/OS_Dr_Bahn_Chapter4.md)
+1. [Chapter5 ](./OS/video_lecture/OS_Dr_Bahn_Chapter5.md)
+1. [Chapter6 ](./OS/video_lecture/OS_Dr_Bahn_Chapter6.md)
+1. [Chapter7 ](./OS/video_lecture/OS_Dr_Bahn_Chapter7.md)
+1. [Chapter8 ](./OS/video_lecture/OS_Dr_Bahn_Chapter8.md)
+1. [Chapter9 ](./OS/video_lecture/OS_Dr_Bahn_Chapter9.md)
+1. [Chapter10 ](./OS/video_lecture/OS_Dr_Bahn_Chapter10.md)
+1. [Chapter11 ](./OS/video_lecture/OS_Dr_Bahn_Chapter11.md)
+</details>
+
+## Programming Language
+#### C lang
+- [System Level I/O](./C/system_level_I\O.md)
 
 ## System Programming
 #### Windows System Programming
@@ -45,25 +80,6 @@
 1. [Chapter21 ](./WindowsSP/System_programming_chapter21.md)
 </details>
 
-## Operating System
-#### OS Dr.Bahn Video Lecture
-> Based on Operating System Concepts by A.Silberschatz et al.
-<details>
-<summary>[ Click to expand ]</summary>
-
-1. [Chapter1 Introduction to Operating Systems](./OS/video_lecture/OS_Dr_Bahn_Chapter1.md)
-1. [Chapter2 System Structure & Program Execution](./OS/video_lecture/OS_Dr_Bahn_Chapter2.md)
-1. [Chapter3 Process](./OS/video_lecture/OS_Dr_Bahn_Chapter3.md)
-1. [Chapter4 ](./OS/video_lecture/OS_Dr_Bahn_Chapter4.md)
-1. [Chapter5 ](./OS/video_lecture/OS_Dr_Bahn_Chapter5.md)
-1. [Chapter6 ](./OS/video_lecture/OS_Dr_Bahn_Chapter6.md)
-1. [Chapter7 ](./OS/video_lecture/OS_Dr_Bahn_Chapter7.md)
-1. [Chapter8 ](./OS/video_lecture/OS_Dr_Bahn_Chapter8.md)
-1. [Chapter9 ](./OS/video_lecture/OS_Dr_Bahn_Chapter9.md)
-1. [Chapter10 ](./OS/video_lecture/OS_Dr_Bahn_Chapter10.md)
-1. [Chapter11 ](./OS/video_lecture/OS_Dr_Bahn_Chapter11.md)
-</details>
-
 ## Unix/Linux
 - [Basic Linux Command](./Unix/command.md)
 - [Vi / Vim](./Unix/vim/vim.md)
@@ -71,11 +87,6 @@
 - GNU
 	- [GCC](./Unix/GNU/GCC.md)
 	- [Make](./Unix/GNU/make.md)
-
-## Programming Language
-#### C lang
-- [System Level I/O](./C/system_level_I\O.md)
-
 
 ## etc.
 - [My development environment setup](./etc/dev_env_setup.md).
