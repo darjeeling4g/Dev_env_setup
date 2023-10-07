@@ -31,6 +31,7 @@
 		>**⚠️ Warning**
 		> 대부분의 API에서는 포인터와 벡터를 구분해서 구현하지 않음
 
-> [!NOTE]
 
-> [!warning]
+$$
+\vec{a}\over\vert\vec{a}\vert
+$$
