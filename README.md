@@ -2,22 +2,21 @@
 > Today I Learned
 
 ## Computer Graphics
-#### Ray Tracing in One Weekend series
+
+### Ray Tracing in One Weekend series
 > by Peter Shirley, Trevor David Black, Steve Hollasch
 - [Ray Tracing in One Weekend](./Graphics/RT_in_one_weekend)
 
-#### Introduction to Computer Graphics with DirectX11
+### [Introduction to Computer Graphics with DirectX11](Graphics/Introduction_to_CG_with_DX11/README)
 > by Jeong-Mo Hong
-- Part 1. [Basic Concepts of Rendering](./Graphics/Introduction_to_CG_with_DX11/Part1.md)
-- Part 2. [Realtime Pipeline]()
-- Part 3. [Rendering Techniques]()
-- Part 4. [Computer Animation]()
 
 ## Computer System Architecture
-#### CSA Dr.Chang Video Lecture
+
+### CSA Dr.Chang Video Lecture
 > Based on Computer System Architecture by M.Moris Mano
+
 <details>
-<summary>[ Click to expand ]</summary>
+<summary>👉 CLICK!</summary>
 
 1. [Chapter1 Digital Logit Circuits](./CSA/video_lecture/CSA_Dr_Chang_chapter1.md)
 1. [Chapter2 Digital Components](./CSA/video_lecture/CSA_Dr_Chang_chapter2.md)
@@ -26,13 +25,16 @@
 1. [Chapter5 Basic Computer Organization and Design](./CSA/video_lecture/CSA_Dr_Chang_chapter5.md)
 1. [Chapter6 Programming the Basic Computer](./CSA/video_lecture/CSA_Dr_Chang_chapter6.md)
 1. [Chapter8 Central Processing Unit](./CSA/video_lecture/CSA_Dr_Chang_chapter8.md)
+
 </details>
 
 ## Operating System
-#### OS Dr.Bahn Video Lecture
+
+### OS Dr.Bahn Video Lecture
 > Based on Operating System Concepts by A.Silberschatz et al.
+
 <details>
-<summary>[ Click to expand ]</summary>
+<summary>👉 CLICK!</summary>
 
 1. [Chapter1 Introduction to Operating Systems](./OS/video_lecture/OS_Dr_Bahn_Chapter1.md)
 1. [Chapter2 System Structure & Program Execution](./OS/video_lecture/OS_Dr_Bahn_Chapter2.md)
@@ -45,17 +47,21 @@
 1. [Chapter9 ](./OS/video_lecture/OS_Dr_Bahn_Chapter9.md)
 1. [Chapter10 ](./OS/video_lecture/OS_Dr_Bahn_Chapter10.md)
 1. [Chapter11 ](./OS/video_lecture/OS_Dr_Bahn_Chapter11.md)
+
 </details>
 
 ## Programming Language
-#### C lang
+
+### C lang
 - [System Level I/O](./C/system_level_I\O.md)
 
 ## System Programming
-#### Windows System Programming
+
+### Windows System Programming
 > 뇌를 자극하는 윈도우즈 시스템 프로그래밍 by 윤성우
+
 <details>
-<summary>[ Click to expand ]</summary>
+<summary>👉 CLICK!</summary>
 
 1. [Chapter1 컴퓨터 구조에 대한 첫 번째 이야기](./WindowsSP/System_programming_chapter1.md)
 1. [Chapter2 아스키코드 vs 유니코드](./WindowsSP/System_programming_chapter2.md)
@@ -78,6 +84,7 @@
 1. [Chapter19 ](./WindowsSP/System_programming_chapter19.md)
 1. [Chapter20 ](./WindowsSP/System_programming_chapter20.md)
 1. [Chapter21 ](./WindowsSP/System_programming_chapter21.md)
+
 </details>
 
 ## Unix/Linux
@@ -91,14 +98,12 @@
 ## etc.
 - [My development environment setup](./etc/dev_env_setup.md).
 
-#### Conference / Meet up
+### Conference / Meet up
 - [Git tips](./etc/git_tips.md)
-
   > 2022.11.10 [목요특강] GIT과 더 친해져 봅시다 by. 박성민 멘토
-
+  
 - [42에서 취업준비하기](./etc/survive_in_42.md)
-
   > 2022.11.24 [목요특강] 42서울에서 취업준비하기 by. 배권한 멘토
-
+  
 - [Hexo로 Github Blog 만들기](./etc/hexo_github_blog.md)
   > 2022.12.3 [온라인 특강] Hexo로 Github Blog 만들기 by. rubykim 멘토
